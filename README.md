@@ -16,8 +16,8 @@ converter = JsonConverter.new
 
 json = some_valid_json_object_or_string
 
-csv = converter.generate_csv json               # Generate a CSV string...
-converter.write_to_csv json, 'boiled_frogs.csv' # ... or write your CSV to a file
+csv = converter.generate_csv(json)               # Generate a CSV string...
+converter.write_to_csv(json, 'boiled_frogs.csv') # ... or write your CSV to a file
 ```
 
 Inspired by http://konklone.io/json/.
