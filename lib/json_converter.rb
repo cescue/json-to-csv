@@ -72,7 +72,7 @@ class JsonConverter
 
   # Recursively flatten a hash (or array of hashes)
   def flatten(target, path='')
-    scalars = [String, Integer, Fixnum, FalseClass, TrueClass]
+    scalars = [String, Integer, FalseClass, TrueClass]
     columns = {}
 
     if [Hash, Array].include? target.class
