@@ -9,7 +9,7 @@ class JsonConverter
 
     generated_csv = CSV.generate do |output|
       csv.each do |row|
-        if headers_written === false && headers === true
+        if headers && !headers_written
           output << row.keys && headers_written = true
         end
 
@@ -27,7 +27,7 @@ class JsonConverter
 
     CSV.open(output_filename.to_s, 'w') do |output_file|
       csv.each do |row|
-        if headers_written === false && headers === true
+        if headers && !headers_written
           output_file << row.keys && headers_written = true
         end
 
@@ -72,7 +72,7 @@ class JsonConverter
 
   # Recursively flatten a hash (or array of hashes)
   def flatten(target, path='')
-    scalars = [String, Integer, Fixnum, FalseClass, TrueClass]
+    scalars = [String, Integer, Float, FalseClass, TrueClass]
     columns = {}
 
     if [Hash, Array].include? target.class
