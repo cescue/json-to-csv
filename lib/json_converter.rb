@@ -9,7 +9,7 @@ class JsonConverter
 
     generated_csv = CSV.generate do |output|
       csv.each do |row|
-        if headers_written === false && headers === true
+        if headers_written.equal?(false) && headers.equal?(true)
           output << row.keys && headers_written = true
         end
 
@@ -27,7 +27,7 @@ class JsonConverter
 
     CSV.open(output_filename.to_s, 'w') do |output_file|
       csv.each do |row|
-        if headers_written === false && headers === true
+        if headers_written.equal?(false) && headers.equal?(true)
           output_file << row.keys && headers_written = true
         end
 
