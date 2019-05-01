@@ -27,7 +27,7 @@ class JsonConverter
 
     CSV.open(output_filename.to_s, 'w') do |output_file|
       csv.each do |row|
-        if headers_written.equal?(false) && headers.equal?(true)
+        if headers && !headers_written
           output_file << row.keys && headers_written = true
         end
 
